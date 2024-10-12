@@ -1,6 +1,8 @@
 # NJHS Attendance Website
 
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://njhsattendance.streamlit.app/)
+
+
 (dev instructions)
 ### How to run it on your own machine
 
