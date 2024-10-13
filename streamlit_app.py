@@ -1,22 +1,10 @@
 import streamlit as st
-from style_funcs import hide_nav, hide_anchor_links
+from style_funcs import hide_nav, sidebar
 
-st.set_page_config(page_title='NJHS Attendance Program', layout="wide", page_icon='')
+st.set_page_config(page_title='NJHS - Home', layout="wide", page_icon='')
 
 hide_nav()
-
-st.sidebar.title("NJHS Attendance Program")
-
-st.sidebar.page_link("streamlit_app.py", label="Home")
-st.sidebar.page_link("pages/program.py", label="Student List")
-st.sidebar.page_link("pages/program.py", label="Program")
-st.sidebar.divider()
-st.sidebar.header("Link to Code:", anchor=False)
-st.sidebar.write("Made by Kyra Movva")
-st.sidebar.link_button("Github Repo", "https://github.com/Kyra15/NJHSAttendanceStreamlit")
-st.sidebar.write("")
-st.sidebar.subheader("Email me if anything breaks!", anchor=False)
-st.sidebar.link_button("kyra.movva@gmail.com", "mailto:kyra.movva@gmail.com")
+sidebar()
 
 st.title("Home", anchor=False)
 st.divider()
@@ -55,6 +43,7 @@ st.write("Once everything is good, click the \"Download Updated Attendance\" but
          "Go to File -> Import and drag and drop the updated attendance file into there. Hit replace current sheet. "
          "Now, copy the entire second column. Go to your main attendance spreadsheet (the one on schoology!) "
          "and paste in the column.")
+
 st.columns(3)[1].image("/Users/kyramovva/NJHSAttendance/images/instruct1.jpeg", width=250)
 st.subheader("That's it!", anchor=False)
 
