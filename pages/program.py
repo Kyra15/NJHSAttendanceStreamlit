@@ -65,16 +65,17 @@ st.header("Google Sheets:", anchor=False)
 st.write("Input your attendance sheet here:")
 st.write("Make sure to add the email \"njhs-sheet-editor@njhsattendence.iam.gserviceaccount.com\" "
          "as an editor to your sheet and set the viewing permissions to \"Anyone with the Link\"")
-sheets_link = st.text_input("Link to your sheet:", value=localS.getItem("sheets_link"), label_visibility="collapsed")
-process_btn = st.button("Process", on_click=localS.setItem("sheets_link", sheets_link))
+if localS.getAll() is not None:
+    sheets_link = st.text_input("Link to your sheet:", value=localS.getItem("sheets_link"), label_visibility="collapsed")
+    process_btn = st.button("Process", on_click=localS.setItem("sheets_link", sheets_link))
 
-if process_btn and sheets_link:
-    gs.main()
+    if process_btn and sheets_link:
+        gs.main()
 
-    st.write("")
-    st.header("Preview:", anchor=False)
-    st.write("(This might take a second to load)")
-    iframe_src = localS.getItem("sheets_link")
-    components.iframe(iframe_src, height=500)
+        st.write("")
+        st.header("Preview:", anchor=False)
+        st.write("(This might take a second to load)")
+        iframe_src = localS.getItem("sheets_link")
+        components.iframe(iframe_src, height=500)
 
 
