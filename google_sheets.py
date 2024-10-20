@@ -1,24 +1,40 @@
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from pages.student_list import LocalStorageManager
+import pandas as pd
 
 
-localS = LocalStorageManager()
+def main():
+    localS = LocalStorageManager()
 
-scope = [
-    'https://www.googleapis.com/auth/drive',
-    'https://www.googleapis.com/auth/drive.file'
-]
-file_name = 'client_key.json'
-creds = ServiceAccountCredentials.from_json_keyfile_name(file_name, scope)
-client = gspread.authorize(creds)
+    scope = [
+        'https://www.googleapis.com/auth/drive',
+        'https://www.googleapis.com/auth/drive.file'
+    ]
+    file_name = 'client_key.json'
+    creds = ServiceAccountCredentials.from_json_keyfile_name(file_name, scope)
+    client = gspread.authorize(creds)
 
-sheet = client.open(localS.getItem("sheets_name")).sheet1
+    spreadsheet = client.open_by_url(localS.getItem("sheets_link"))
+    worksheet = spreadsheet.get_worksheet(0)
+    records_data = worksheet.get_values()
 
-# basically
-# i need to get the most far-left column that has 0 text in it starting after the first row
-# then, ill for loop through and update all of the cells with their corresponding value of 1 or 0
-# then based on that number, I'll take the entire columna dna conditional format it for green = 1 and no color = 0
-# finally, i'll output the total number of people at the bottom of the page like 5 lines after the last name
-# (just get the last index of the last person + 1)
+    records_df = pd.DataFrame.from_dict(records_data)
+    # print(records_df)
 
+    last_col = len(records_df.columns)
+    print(last_col)
+
+    returned_table = pd.read_csv("returntable.csv")
+    values_list = returned_table["Attendance"].to_list()
+    values_list.insert(0, "Input date here")
+
+    if len(values_list) < len(records_df):
+        values_list += [''] * (len(records_df) - len(values_list))
+
+    records_df.insert(last_col, "", values_list, True)
+    print(records_df)
+
+    records_data = records_df.values.tolist()
+
+    worksheet.update("A1", records_data)
