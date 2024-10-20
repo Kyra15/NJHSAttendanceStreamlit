@@ -71,24 +71,14 @@ def main():
             else:
                 extra.append(showed)
 
-    # print("\n\nFull List of all Members", masterlist)
-
-    # print("\n\nOrganized File:", returndict)
-    # print("\n\nPeople who came but aren't in NJHS yet (might have minor errors in names too, so double check this):", extra)
 
     errors = dict(list(returndict.items())[number_of_members-1:])
-    # print("\n\nErrors in spreadsheet (different names, typos in name, etc):", errors)
+    
     global counter
     counter = 0
     for i in returndict:
         if 1 == returndict[i]:
             counter += 1
-
-
-    print("\n\nNumber of people who came to the meeting: ", counter)
-
-
-
 
     returndict = dict(list(returndict.items())[:number_of_members-1])
 
