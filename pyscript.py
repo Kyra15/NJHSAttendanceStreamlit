@@ -1,5 +1,9 @@
 import csv
 import re
+import os
+
+
+counter = 0
 
 
 def people_attended(slist):
@@ -29,6 +33,10 @@ def formatting(name, num):
         lastname = re.findall(r"'(.*?)'", lastname, re.DOTALL)
         name = str(name[-1].strip()) + " " + str(lastname)[2:-2]
     return name.title()
+
+
+def get_counter():
+    return counter
 
 
 def main():
@@ -70,15 +78,23 @@ def main():
 
     errors = dict(list(returndict.items())[number_of_members-1:])
     # print("\n\nErrors in spreadsheet (different names, typos in name, etc):", errors)
-
+    global counter
     counter = 0
     for i in returndict:
         if 1 == returndict[i]:
             counter += 1
 
+
     print("\n\nNumber of people who came to the meeting: ", counter)
 
+
+
+
     returndict = dict(list(returndict.items())[:number_of_members-1])
+
+    os.remove("errors.txt")
+    os.remove("returntable.csv")
+    os.remove("extras.txt")
 
     with open("errors.txt", "w", newline="") as errorfile:
         errorfile.write("Student Name\n")
