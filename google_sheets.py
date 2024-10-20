@@ -20,10 +20,8 @@ def main():
     records_data = worksheet.get_values()
 
     records_df = pd.DataFrame.from_dict(records_data)
-    # print(records_df)
 
     last_col = len(records_df.columns)
-    print(last_col)
 
     returned_table = pd.read_csv("returntable.csv")
     values_list = returned_table["Attendance"].to_list()
@@ -33,7 +31,6 @@ def main():
         values_list += [''] * (len(records_df) - len(values_list))
 
     records_df.insert(last_col, "", values_list, True)
-    print(records_df)
 
     records_data = records_df.values.tolist()
 
