@@ -1,16 +1,22 @@
 import streamlit as st
 from style_funcs import hide_nav, sidebar
-from pages.student_list import LocalStorageManager
 import pandas as pd
 import pyscript as ps
 import google_sheets as gs
 import streamlit.components.v1 as components
+from streamlit_local_storage import LocalStorage
+
 
 
 st.set_page_config(page_title='NJHS Attendance Program - Student List', layout="wide", page_icon='')
 
 hide_nav()
 sidebar()
+
+
+def LocalStorageManager():
+    return LocalStorage()
+
 
 localS = LocalStorageManager()
 
