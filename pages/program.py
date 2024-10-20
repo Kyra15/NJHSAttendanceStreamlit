@@ -2,7 +2,9 @@ import streamlit as st
 from style_funcs import hide_nav, sidebar
 from pages.student_list import LocalStorageManager
 import pandas as pd
-from pyscript import main
+import pyscript as ps
+import google_sheets as gs
+import streamlit.components.v1 as components
 
 
 st.set_page_config(page_title='NJHS Attendance Program - Student List', layout="wide", page_icon='')
@@ -36,9 +38,10 @@ if not process_file():
     st.warning("Please upload a file!")
 else:
     st.success("Uploaded!")
-    main()
+    ps.main()
 
     st.header("Attendance Marked", anchor=False)
+    st.write("Number of people that came to the meeting: " + str(ps.get_counter()))
     st.dataframe(pd.read_csv("returntable.csv"), width=500)
 
     st.subheader("Errors:", anchor=False)
@@ -55,9 +58,15 @@ st.divider()
 st.header("Google Sheets:", anchor=False)
 st.write("Input your attendance sheet here:")
 st.write("Make sure to add the email \"njhs-sheet-editor@njhsattendence.iam.gserviceaccount.com\" "
-         "as an editor to your sheet")
-st.write("Also make sure to set the viewing permissions to \"Anyone with the Link\"")
-sheets_name = st.text_input("Name:")
-sheets_link = st.text_input("Link:")
-localS.setItem("sheets_link", sheets_link)
-localS.setItem("sheets_name", sheets_name)
+         "as an editor to your sheet and set the viewing permissions to \"Anyone with the Link\"")
+sheets_link = st.text_input("Link to your sheet:", value=localS.getItem("sheets_link"), label_visibility="collapsed")
+process_btn = st.button("Process", on_click=localS.setItem("sheets_link", sheets_link))
+
+if process_btn and sheets_link:
+    gs.main()
+
+    st.write("")
+    st.header("Preview:", anchor=False)
+    st.write("(This might take a second to load)")
+    iframe_src = localS.getItem("sheets_link")
+    components.iframe(iframe_src, height=500)
