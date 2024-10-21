@@ -14,8 +14,6 @@ student_list = []
 if "student_names" not in st.session_state:
     st.session_state["student_names"] = []
 
-st.error("Hiiii")
-
 hide_nav()
 sidebar()
 
