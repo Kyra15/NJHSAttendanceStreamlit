@@ -8,7 +8,7 @@ st.set_page_config(page_title='NJHS Attendance Program - Student List', layout="
 try:
     localS = LocalStorage()
 except Exception as e:
-    print(e)
+    st.write(e)
 student_list = []
 
 st.error("Hiiii")
