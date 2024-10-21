@@ -5,8 +5,7 @@ I'm still working on the cloud version of this code, but for now the localhost (
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://njhsattendance.streamlit.app/)
 
 
-(localhost instructions)
-### How to run it on your own machine
+### How to run it on your own machine (local instructions)
 
 1. Install the requirements
 
