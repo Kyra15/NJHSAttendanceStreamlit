@@ -11,6 +11,9 @@ except Exception as e:
     st.write("im going to cry", e)
 student_list = []
 
+if "student_names" not in st.session_state:
+    st.session_state["student_names"] = []
+
 st.error("Hiiii")
 
 hide_nav()
@@ -23,7 +26,7 @@ st.header("Input:", anchor=False)
 with st.form("student_form"):
     st.write("Copy and paste names into here and click save when done")
     st.image("images/student_input_ex.png", use_column_width="always", caption="Example input")
-    student_text = st.text_area("InputBox", value=formatting_for_str(str(localS.getItem("student_names", default=[]))),
+    student_text = st.text_area("InputBox", value=formatting_for_str(str(localS.getItem("student_names"))),
                                 label_visibility="collapsed", height=300)
     exists = st.form_submit_button("Save")
     if exists is not None:
