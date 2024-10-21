@@ -4,7 +4,7 @@ from style_funcs import hide_nav, sidebar, formatting_for_str
 
 
 st.set_page_config(page_title='NJHS Attendance Program - Student List', layout="wide", page_icon='')
-st.error("Hiiii")
+
 
 
 def LocalStorageManager():
@@ -13,6 +13,8 @@ def LocalStorageManager():
 
 localS = LocalStorageManager()
 student_list = []
+
+st.error("Hiiii")
 
 hide_nav()
 sidebar()
