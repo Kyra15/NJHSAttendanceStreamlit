@@ -5,10 +5,7 @@ from streamlit_local_storage import LocalStorage
 
 st.set_page_config(page_title='NJHS Attendance Program - Student List', layout="wide", page_icon='')
 
-try:
-    localS = LocalStorage()
-except Exception as e:
-    st.write("im going to cry", e)
+localS = LocalStorage()
 student_list = []
 
 if "student_names" not in st.session_state:
