@@ -1,9 +1,11 @@
 # NJHS Attendance Website
 
+I'm still working on the cloud version of this code, for now the localhost (instructions below) works perfectly!
+
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://njhsattendance.streamlit.app/)
 
 
-(dev instructions)
+(localhost instructions)
 ### How to run it on your own machine
 
 1. Install the requirements
