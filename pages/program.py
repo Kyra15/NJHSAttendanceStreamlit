@@ -8,7 +8,7 @@ from streamlit_local_storage import LocalStorage
 
 
 
-st.set_page_config(page_title='NJHS Attendance Program - Student List', layout="wide", page_icon='')
+st.set_page_config(page_title='NJHS Attendance Program - Program', layout="wide", page_icon='')
 
 hide_nav()
 sidebar()
@@ -37,7 +37,7 @@ with open("attendance_sheet.csv", "w") as f:
     f.write("")
 
 st.header("Attendance Upload:", anchor=False)
-uploaded_file = st.file_uploader(label="", label_visibility="collapsed")
+uploaded_file = st.file_uploader(label="uploader", label_visibility="collapsed")
 
 
 if not process_file():

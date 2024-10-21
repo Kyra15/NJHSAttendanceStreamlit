@@ -26,13 +26,12 @@ with st.form("student_form"):
     student_text = st.text_area("InputBox", value=formatting_for_str(str(localS.getItem("student_names"))),
                                 label_visibility="collapsed", height=300)
     exists = st.form_submit_button("Save")
-    if exists: # error most likely
-        if exists is not None:
-            student_list = student_text.split("\n")
-            localS.setItem("student_names", student_list)
+    if exists is not None:
+        student_list = student_text.split("\n")
+        localS.setItem("student_names", student_list)
 
-student_list = localS.getItem("student_names")
-with open("masterlist.csv", "w", newline="") as f:
-    for i in student_list:
-        if i != "":
-            f.write(i + "\n")
+        student_list = localS.getItem("student_names")
+        with open("masterlist.csv", "w", newline="") as f:
+            for i in student_list:
+                if i != "":
+                    f.write(i + "\n")

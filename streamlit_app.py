@@ -41,7 +41,7 @@ st.write("If there are issues with the form, which will most likely come from ty
          "Keep repeating this until the \"Errors\" box is empty.")
 st.image("images/fixing_errors.gif", use_column_width="always")
 st.write("The names of people who came to the meeting but aren't members of "
-         "NJHS will also be outputted if you need them too :)")
+         "NJHS will also be outputted if you need them too.")
 
 st.image("images/extras.png", use_column_width="always")
 st.subheader("That's it!", anchor=False)
