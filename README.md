@@ -1,6 +1,6 @@
 # NJHS Attendance Website
 
-I'm still working on the cloud version of this code, for now the localhost (instructions below) works perfectly!
+I'm still working on the cloud version of this code, but for now the localhost (instructions below) works perfectly!
 
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://njhsattendance.streamlit.app/)
 
