@@ -44,5 +44,11 @@ st.write("The names of people who came to the meeting but aren't members of "
          "NJHS will also be outputted if you need them too.")
 
 st.image("images/extras.png", use_column_width="always")
+
+st.write("Now click the process button, and if everything worked correctly, your google sheet should be updated with "
+         "either a 1 or a 0 by each name, "
+         "depending on whether they were at the meeting or not.")
+st.image("images/processing.gif", use_column_width="always")
+
 st.subheader("That's it!", anchor=False)
 
