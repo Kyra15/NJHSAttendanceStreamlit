@@ -4,6 +4,7 @@ from streamlit_local_storage import LocalStorage
 
 
 st.set_page_config(page_title='NJHS Attendance Program - Student List', layout="wide", page_icon='')
+st.error("Hiiii")
 
 
 def LocalStorageManager():
