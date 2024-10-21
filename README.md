@@ -7,6 +7,8 @@ I'm still working on the cloud version of this code, but for now the localhost (
 
 ### How to run it on your own machine (local instructions)
 
+Download the code (I used Pycharms n it worked well)
+
 1. Install the requirements
 
    ```
