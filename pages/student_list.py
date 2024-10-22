@@ -8,6 +8,10 @@ st.set_page_config(page_title='NJHS Attendance Program - Student List', layout="
 localS = LocalStorage()
 student_list = []
 
+localS.setItem("testing_key", "hello")
+st.write(localS.getItem("testimg_key"))
+    
+
 if "student_names" not in st.session_state:
     st.session_state["student_names"] = []
 
