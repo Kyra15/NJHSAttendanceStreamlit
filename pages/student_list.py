@@ -8,8 +8,9 @@ st.set_page_config(page_title='NJHS Attendance Program - Student List', layout="
 localS = LocalStorage()
 student_list = []
 
-# I FIGURED IT OUT ITS JSON things aren't getting parsed in a json format
+# I FIGURED IT OUT ITS JSON things aren't getting parsed in a json format or smth
 
+# straight from github for library - causes error with components and a random string of characters
 itemKey = "Test"
 itemValue = "Hello"
 localS.setItem(itemKey, itemValue)
