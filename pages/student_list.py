@@ -10,7 +10,7 @@ student_list = []
 
 # I FIGURED IT OUT ITS JSON things aren't getting parsed in a json format
 
-itemKey = "Test
+itemKey = "Test"
 itemValue = "Hello"
 localS.setItem(itemKey, itemValue)
 
