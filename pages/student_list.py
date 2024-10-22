@@ -10,8 +10,8 @@ student_list = []
 
 # I FIGURED IT OUT ITS JSON things aren't getting parsed in a json format
 
-itemKey = "camera"
-itemValue = "Tarah"
+itemKey = "Test
+itemValue = "Hello"
 localS.setItem(itemKey, itemValue)
 
 #if "student_names" not in st.session_state:
